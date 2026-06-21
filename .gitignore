@@ -1,3 +1,7 @@
 site/
 __pycache__/
 .DS_Store
+
+# 真实客户材料目录，不入 git
+real-docs/
+private-docs/
