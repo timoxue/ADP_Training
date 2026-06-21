@@ -1,0 +1,102 @@
+site_name: ADP 智能体实战培训
+site_description: 腾讯云智能体开发平台 · 证券行业实战培训手册
+site_author: ADP 培训团队
+docs_dir: docs
+site_dir: site
+
+theme:
+  name: material
+  language: zh
+  palette:
+    - scheme: default
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-7
+        name: 切换到深色模式
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: 切换到浅色模式
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+  font:
+    text: Noto Sans SC
+    code: Roboto Mono
+  icon:
+    repo: fontawesome/brands/github
+
+plugins:
+  - search:
+      lang: zh
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - attr_list
+  - md_in_html
+  - tables
+  - toc:
+      permalink: true
+
+nav:
+  - 首页: index.md
+  - 基础篇:
+    - 概览: 01-foundation/index.md
+    - LLM · RAG · Agent: 01-foundation/llm-rag-agent.md
+    - Skills 与 HARNESS: 01-foundation/skills-harness.md
+    - ADP 平台功能总览: 01-foundation/adp-platform.md
+    - 四种应用模式: 01-foundation/adp-modes.md
+    - 推荐 Skills 分类: 01-foundation/useful-skills.md
+  - 方法篇（六步分析法）:
+    - 概览: 02-six-step/index.md
+    - 六步分析法详解: 02-six-step/method.md
+    - 自定义 Skills 准备: 02-six-step/skills-prep.md
+    - 应用创建与配置: 02-six-step/app-create.md
+    - 提示词编写实战: 02-six-step/prompt-writing.md
+  - 场景一·投研自动化:
+    - 概览: 03-scenario1-research/index.md
+    - 研报问答系统搭建: 03-scenario1-research/rag-qa.md
+    - 数据抽取与结构化: 03-scenario1-research/data-extract.md
+    - 配置截图与验收: 03-scenario1-research/screenshots.md
+  - 场景二·财富投顾:
+    - 概览: 04-scenario2-advisor/index.md
+    - 7×24 对话助手: 04-scenario2-advisor/assistant.md
+    - 适当性红线配置: 04-scenario2-advisor/compliance-line.md
+    - 配置截图与验收: 04-scenario2-advisor/screenshots.md
+  - 场景三·合规风控:
+    - 概览: 05-scenario3-compliance/index.md
+    - 方案A：话术合规预检: 05-scenario3-compliance/plan-a-speech.md
+    - 方案B：制度版本比对: 05-scenario3-compliance/plan-b-diff.md
+    - 配置截图与验收: 05-scenario3-compliance/screenshots.md
+  - 场景四·投后经营:
+    - 概览: 06-scenario4-post-invest/index.md
+    - 公告抓取与简报生成: 06-scenario4-post-invest/fetch-report.md
+    - 群机器人推送配置: 06-scenario4-post-invest/webhook-push.md
+    - 配置截图与验收: 06-scenario4-post-invest/screenshots.md
+  - 进阶篇·Multi-Agent:
+    - 概览: 07-multi-agent/index.md
+    - 投研小团队架构设计: 07-multi-agent/team-design.md
+    - 主 Agent 配置: 07-multi-agent/main-agent.md
+    - 子 Agent 配置与转交: 07-multi-agent/sub-agents.md
+    - 验收标准与常见问题: 07-multi-agent/validation.md
