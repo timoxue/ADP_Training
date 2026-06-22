@@ -80,9 +80,8 @@ nav:
     - 数据抽取与结构化: 03-scenario1-research/data-extract.md
     - 配置截图与验收: 03-scenario1-research/screenshots.md
   - 场景二·财富投顾:
-    - 概览: 04-scenario2-advisor/index.md
-    - 7×24 对话助手: 04-scenario2-advisor/assistant.md
-    - 适当性红线配置: 04-scenario2-advisor/compliance-line.md
+    - 六步分析: 04-scenario2-advisor/index.md
+    - 详细搭建指南: 04-scenario2-advisor/assistant.md
     - 配置截图与验收: 04-scenario2-advisor/screenshots.md
   - 场景三·合规风控:
     - 概览: 05-scenario3-compliance/index.md
