@@ -64,7 +64,8 @@ nav:
   - 基础篇:
     - 概览: 01-foundation/index.md
     - LLM · RAG · Agent: 01-foundation/llm-rag-agent.md
-    - Skills 与 HARNESS: 01-foundation/skills-harness.md
+    - 主流模型与框架速览: 01-foundation/ai-landscape.md
+    - Skills 与提示词框架: 01-foundation/skills-harness.md
     - ADP 平台功能总览: 01-foundation/adp-platform.md
     - 四种应用模式: 01-foundation/adp-modes.md
     - 推荐 Skills 分类: 01-foundation/useful-skills.md
