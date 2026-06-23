@@ -19,10 +19,13 @@
 
 | Skill | 用途 | 典型调用 |
 |-------|------|---------|
-| `a-stock-data` | A 股行情、财务三表、巨潮公告、股东信息 | "查宁德时代近三年 ROE" |
+| `a-stock-data` | A 股全栈数据：行情/研报/信号/资金/新闻/财务/公告，七层 27 个端点 | "查宁德时代近三年 ROE""拉今日龙虎榜" |
 | `instant-data-qa` | 自然语言对结构化数据提问（Text-to-SQL） | "哪些客户今年净申购超 100 万" |
 | `data-analysis-workflow` | 上传 Excel/CSV 自动分析并生成图表 | 同业数据对比、业绩归因 |
 | `dcf-model` | 折现现金流估值模型 | 企业内在价值测算 |
+
+!!! info "a-stock-data 详细文档"
+    七层架构、27 个端点说明、防封铁律、代码示例见 [a-stock-data 详解](skill-a-stock-data.md)。
 
 ---
 

@@ -69,6 +69,7 @@ nav:
     - ADP 平台功能总览: 01-foundation/adp-platform.md
     - 四种应用模式: 01-foundation/adp-modes.md
     - 推荐 Skills 分类: 01-foundation/useful-skills.md
+    - a-stock-data 详解: 01-foundation/skill-a-stock-data.md
   - 方法篇（六步分析法）:
     - 概览: 02-six-step/index.md
     - 六步分析法详解: 02-six-step/method.md
