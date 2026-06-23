@@ -73,6 +73,46 @@
 | 知识库已配置 | 4个分类已建好（合规规则库/禁语词表/合同模板/历史预检案例） |
 | 文档已上传 | 法规汇编、禁语词表、合同模板、预检案例已上传到知识库 |
 
+### 知识库文件下载
+
+下载以下4个文件，上传到对应的知识库分类：
+
+<div class="grid cards" markdown>
+
+-   :material-file-document: **合规规则库**
+
+    ---
+
+    证券行业核心法规汇编（《证券法》《金融营销通知》等）
+
+    [📥 下载](../assets/downloads/合规预检场景/合规规则库-证券行业核心法规汇编.md){ .md-button .md-button--primary download }
+
+-   :material-format-list-bulleted: **禁语词表**
+
+    ---
+
+    证券行业金融营销禁用词清单（68个禁用词）
+
+    [📥 下载](../assets/downloads/合规预检场景/禁语词表-证券行业金融营销禁用词清单.md){ .md-button .md-button--primary download }
+
+-   :material-file-sign: **合同模板**
+
+    ---
+
+    证券服务合同模板含关键条款标注
+
+    [📥 下载](../assets/downloads/合规预检场景/合同模板-证券服务合同模板含关键条款标注.md){ .md-button .md-button--primary download }
+
+-   :material-history: **历史预检案例**
+
+    ---
+
+    证券行业合规预检典型案例汇编
+
+    [📥 下载](../assets/downloads/合规预检场景/历史预检案例-证券行业合规预检典型案例汇编.md){ .md-button .md-button--primary download }
+
+</div>
+
 ---
 
 ## Phase 1：搭建子工作流 compliance_single_check
