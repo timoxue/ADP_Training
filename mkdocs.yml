@@ -99,3 +99,8 @@ nav:
     - 主 Agent 配置: 07-multi-agent/main-agent.md
     - 子 Agent 配置与转交: 07-multi-agent/sub-agents.md
     - 验收标准与常见问题: 07-multi-agent/validation.md
+  - Claude Code 实战:
+    - 概览: 08-claude-code/index.md
+    - 场景一：监管文件智能解析: 08-claude-code/demo1-document-analysis.md
+    - 场景二：财务数据自动分析: 08-claude-code/demo2-data-processing.md
+    - 场景三：批量报告生成: 08-claude-code/demo3-batch-content.md
