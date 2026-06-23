@@ -5,3 +5,4 @@ __pycache__/
 # 真实客户材料目录，不入 git
 real-docs/
 private-docs/
+skills/wiki-crawler/scripts/__pycache__/
