@@ -104,3 +104,7 @@ nav:
     - 场景一：监管文件智能解析: 08-claude-code/demo1-document-analysis.md
     - 场景二：财务数据自动分析: 08-claude-code/demo2-data-processing.md
     - 场景三：批量报告生成: 08-claude-code/demo3-batch-content.md
+  - 框架演示·OpenClaw & Hermes:
+    - 概览: 09-openclaw-hermes/index.md
+    - OpenClaw 合规预检演示: 09-openclaw-hermes/openclaw-demo.md
+    - Hermes 跨会话记忆演示: 09-openclaw-hermes/hermes-demo.md
