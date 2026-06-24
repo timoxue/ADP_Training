@@ -1,0 +1,2917 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="腾讯云智能体开发平台 · 证券行业实战培训手册">
+      
+      
+        <meta name="author" content="Timothy Xue">
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../screenshots/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>详细搭建指南 - AI 应用实战培训</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#_1" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="AI 应用实战培训" class="md-header__button md-logo" aria-label="AI 应用实战培训" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI 应用实战培训
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              详细搭建指南
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/timoxue/ADP_Training" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    timoxue/ADP_Training
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-foundation/" class="md-tabs__link">
+          
+  
+  基础篇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-six-step/" class="md-tabs__link">
+          
+  
+  方法篇（六步分析法）
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-scenario1-research/" class="md-tabs__link">
+          
+  
+  场景一·投研自动化
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  场景二·财富投顾
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-scenario3-compliance/" class="md-tabs__link">
+          
+  
+  场景三·合规风控
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-scenario4-post-invest/" class="md-tabs__link">
+          
+  
+  场景四·投后经营
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-multi-agent/" class="md-tabs__link">
+          
+  
+  进阶篇·Multi-Agent
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../08-claude-code/" class="md-tabs__link">
+          
+  
+  Claude Code 实战
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../09-openclaw-hermes/" class="md-tabs__link">
+          
+  
+  框架演示·OpenClaw & Hermes
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI 应用实战培训" class="md-nav__button md-logo" aria-label="AI 应用实战培训" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AI 应用实战培训
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/timoxue/ADP_Training" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    timoxue/ADP_Training
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    基础篇
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            基础篇
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/llm-rag-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLM · RAG · Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/ai-landscape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主流模型与框架速览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/skills-harness/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skills 与提示词框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/adp-platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADP 平台功能总览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/adp-modes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    四种应用模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/useful-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    推荐 Skills 分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/skill-a-stock-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    a-stock-data 详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    方法篇（六步分析法）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            方法篇（六步分析法）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/method/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    六步分析法详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/skills-prep/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自定义 Skills 准备
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/app-create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    应用创建与配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/prompt-writing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提示词编写实战
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    场景一·投研自动化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            场景一·投研自动化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scenario1-research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scenario1-research/rag-qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    研报问答系统搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scenario1-research/data-extract/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据抽取与结构化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scenario1-research/screenshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置截图与验收
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    场景二·财富投顾
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            场景二·财富投顾
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    六步分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    详细搭建指南
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    详细搭建指南
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      操作清单（9步）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.1：创建应用（标准模式）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.2：配置模型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.3：设计并粘贴提示词
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 5.3：设计并粘贴提示词">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      提示词结构说明
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量说明
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.4：配置知识库
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 5.4：配置知识库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类结构（5个分类）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      文档清单（6份）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      检索配置建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.5：配置变量与长期记忆
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 5.5：配置变量与长期记忆">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      开启长期记忆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加自定义变量（Demo 阶段预设默认值）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.6：配置欢迎语与开场问题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.7：测试与调优
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.8：发布上线
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.9：上线后切换为 CRM 传参
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 5.9：上线后切换为 CRM 传参">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#demo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      清除 Demo 默认值
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      对接 CRM 系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      记忆隔离说明
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../screenshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置截图与验收
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    场景三·合规风控
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            场景三·合规风控
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-scenario3-compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-scenario3-compliance/plan-a-speech/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    方案A：话术合规预检
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-scenario3-compliance/plan-b-diff/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    方案B：制度版本比对
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-scenario3-compliance/screenshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置截图与验收
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    场景四·投后经营
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            场景四·投后经营
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-scenario4-post-invest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-scenario4-post-invest/fetch-report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    公告抓取与简报生成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-scenario4-post-invest/webhook-push/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    群机器人推送配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-scenario4-post-invest/screenshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置截图与验收
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    进阶篇·Multi-Agent
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            进阶篇·Multi-Agent
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/team-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    投研小团队架构设计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/main-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主 Agent 配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/sub-agents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    子 Agent 配置与转交
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    验收标准与常见问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    Claude Code 实战
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Claude Code 实战
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-claude-code/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-claude-code/demo1-document-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    场景一：监管文件智能解析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-claude-code/demo2-data-processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    场景二：财务数据自动分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../08-claude-code/demo3-batch-content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    场景三：批量报告生成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    框架演示·OpenClaw & Hermes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            框架演示·OpenClaw & Hermes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-openclaw-hermes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-openclaw-hermes/openclaw-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenClaw 合规预检演示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-openclaw-hermes/hermes-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hermes 跨会话记忆演示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#9" class="md-nav__link">
+    <span class="md-ellipsis">
+      操作清单（9步）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#51" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.1：创建应用（标准模式）
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#52" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.2：配置模型
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#53" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.3：设计并粘贴提示词
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 5.3：设计并粘贴提示词">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      提示词结构说明
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      变量说明
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#54" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.4：配置知识库
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 5.4：配置知识库">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      分类结构（5个分类）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      文档清单（6份）
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      检索配置建议
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#55" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.5：配置变量与长期记忆
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 5.5：配置变量与长期记忆">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    <span class="md-ellipsis">
+      开启长期记忆
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#demo" class="md-nav__link">
+    <span class="md-ellipsis">
+      添加自定义变量（Demo 阶段预设默认值）
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#56" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.6：配置欢迎语与开场问题
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#57" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.7：测试与调优
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#58" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.8：发布上线
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#59-crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5.9：上线后切换为 CRM 传参
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="步骤 5.9：上线后切换为 CRM 传参">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#demo_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      清除 Demo 默认值
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#crm" class="md-nav__link">
+    <span class="md-ellipsis">
+      对接 CRM 系统
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_6" class="md-nav__link">
+    <span class="md-ellipsis">
+      记忆隔离说明
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="_1">财富顾问助手详细搭建指南（第五步详细操作）<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>标准模式 | 5分类知识库 | 提示词含四条红线+三模块输出</p>
+</blockquote>
+<div class="admonition info">
+<p class="admonition-title">六步推理链导览</p>
+<p>本文档是<strong>第五步：分步操作</strong>的完整配置指南。六步分析答案见 <a href="../">场景二六步分析</a>。</p>
+</div>
+<hr />
+<h2 id="9">操作清单（9步）<a class="headerlink" href="#9" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>步骤</th>
+<th>做什么</th>
+<th>在哪操作</th>
+<th>为什么</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.1 创建应用</td>
+<td>新建应用，选择标准模式</td>
+<td>ADP → 应用 → 新建应用 → 标准模式</td>
+<td>知识库原生集成更稳定，支持长期记忆</td>
+</tr>
+<tr>
+<td>5.2 配置模型</td>
+<td>选择思考模型+生成模型</td>
+<td>应用编辑页 → 模型设置</td>
+<td>双模型协同，推理+生成分工</td>
+</tr>
+<tr>
+<td>5.3 设计提示词</td>
+<td>粘贴角色指令（含四条红线）</td>
+<td>应用编辑页 → 角色指令</td>
+<td>定义Agent行为边界和合规约束</td>
+</tr>
+<tr>
+<td>5.4 配置知识库</td>
+<td>创建5分类 → 上传6份文档</td>
+<td>应用详情 → 知识</td>
+<td>产品数据的唯一来源</td>
+</tr>
+<tr>
+<td>5.5 配置变量与记忆</td>
+<td>添加3个变量+开启长期记忆</td>
+<td>应用设置 → 变量与记忆</td>
+<td>客户个性化+跨会话记忆</td>
+</tr>
+<tr>
+<td>5.6 配置欢迎语</td>
+<td>设置欢迎语+3条开场问题</td>
+<td>应用编辑页 → 欢迎语</td>
+<td>引导用户快速开始，验证红线二</td>
+</tr>
+<tr>
+<td>5.7 测试与调优</td>
+<td>用CP/KB/M系列用例验收</td>
+<td>应用详情 → 测试</td>
+<td>确保提示词/知识库协同正常</td>
+</tr>
+<tr>
+<td>5.8 发布上线</td>
+<td>发布到正式环境</td>
+<td>应用详情 → 发布</td>
+<td>发布后才能正式使用</td>
+</tr>
+<tr>
+<td>5.9 切换CRM传参</td>
+<td>删除默认值，改为API传参</td>
+<td>应用设置 → 变量与记忆</td>
+<td>上线阶段接入真实客户数据</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="51">步骤 5.1：创建应用（标准模式）<a class="headerlink" href="#51" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">这是最关键的一步——选错模式要从头来过！</p>
+</div>
+<ol>
+<li>登录 ADP 控制台</li>
+<li>左侧导航 → <strong>应用</strong></li>
+<li>点击 <strong>新建应用</strong></li>
+<li>填写：</li>
+<li>应用名称：<code>财富顾问助手标准版</code></li>
+<li>应用描述：<code>银行理财客户专属投顾助手，支持产品查询、费率对比、风险匹配、合规问答</code></li>
+<li><strong>选择模式：标准模式</strong>（不是 Claw 模式！）</li>
+<li>点击确认创建</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>项</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>⚠️ 模式不可逆</td>
+<td>Claw 模式创建后不可切换到其他模式；标准模式可切到单工作流/Multi-Agent</td>
+</tr>
+<tr>
+<td>✅ 标准模式优势</td>
+<td>知识库原生集成更稳定；双模型协同推理；支持长期记忆；未来可切工作流扩展</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>产出 app_id：<code>2068970251895277568</code></p>
+</blockquote>
+<hr />
+<h2 id="52">步骤 5.2：配置模型<a class="headerlink" href="#52" title="Permanent link">&para;</a></h2>
+<ol>
+<li>进入应用编辑页</li>
+<li>左侧菜单 → <strong>模型设置</strong></li>
+<li>选择模型：<strong>DeepSeek V3.2</strong>（思考模型和生成模型均选此项）</li>
+<li>保存</li>
+</ol>
+<p>标准模式采用<strong>双模型协同</strong>：
+- <strong>思考模型</strong>：做推理判定（风险等级匹配、合规检查）
+- <strong>生成模型</strong>：做输出（格式化回复、产品推荐报告）</p>
+<hr />
+<h2 id="53">步骤 5.3：设计并粘贴提示词<a class="headerlink" href="#53" title="Permanent link">&para;</a></h2>
+<ol>
+<li>左侧菜单 → <strong>角色指令</strong></li>
+<li>将以下提示词<strong>完整粘贴</strong>到文本框中</li>
+<li>保存</li>
+</ol>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>## 角色
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>你是{{API.CustomerName}}的专属财富顾问助手，服务于[公司名]财富管理部，客户风险等级为{{API.RiskLevel}}。
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>以下是你对该客户的历史了解：
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>{{SYS.Memory}}
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>## 风格特点
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>1. 亲切、简洁，避免专业术语堆砌
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>2. 每次回答费率、投资范围问题时必须引用知识库原文并注明出处
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>3. 主动记住客户提及的偏好和关切，下次对话中体现
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>## 记忆要求
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>每次对话后，请自动记录以下客户信息更新：
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>- 客户明确表达的风险偏好
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>- 持仓产品或关注的产品类型
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>- 客户提出的服务诉求或投诉
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>- 客户家庭/职业背景（客户主动提及时）
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>## 输出要求
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>回复必须包含以下模块，标题用【】标注：
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>1. 【直接回答】：针对客户问题给出简明答案
+<a id="__codelineno-0-22" name="__codelineno-0-22" href="#__codelineno-0-22"></a>2. 【产品依据】：引用知识库，标注来源文件
+<a id="__codelineno-0-23" name="__codelineno-0-23" href="#__codelineno-0-23"></a>3. 【风险提示】：每条回复末尾必须附加一句风险提示
+<a id="__codelineno-0-24" name="__codelineno-0-24" href="#__codelineno-0-24"></a>
+<a id="__codelineno-0-25" name="__codelineno-0-25" href="#__codelineno-0-25"></a>## 四条红线（绝对禁止，无例外）
+<a id="__codelineno-0-26" name="__codelineno-0-26" href="#__codelineno-0-26"></a>
+<a id="__codelineno-0-27" name="__codelineno-0-27" href="#__codelineno-0-27"></a>**红线一：不承诺收益**
+<a id="__codelineno-0-28" name="__codelineno-0-28" href="#__codelineno-0-28"></a>禁止出现&quot;预期收益&quot;&quot;历史收益即未来收益&quot;&quot;一定能赚&quot;等表述。
+<a id="__codelineno-0-29" name="__codelineno-0-29" href="#__codelineno-0-29"></a>遇到客户问&quot;能赚多少&quot;→ 回答：&quot;收益因市场情况而异，过往业绩不代表未来表现，请参阅产品说明书风险揭示章节。&quot;
+<a id="__codelineno-0-30" name="__codelineno-0-30" href="#__codelineno-0-30"></a>
+<a id="__codelineno-0-31" name="__codelineno-0-31" href="#__codelineno-0-31"></a>**红线二：不输出&quot;保本&quot;&quot;无风险&quot;&quot;稳赚&quot;**
+<a id="__codelineno-0-32" name="__codelineno-0-32" href="#__codelineno-0-32"></a>一律替换为：&quot;该产品存在本金损失风险，请根据您的风险承受能力谨慎选择。&quot;
+<a id="__codelineno-0-33" name="__codelineno-0-33" href="#__codelineno-0-33"></a>
+<a id="__codelineno-0-34" name="__codelineno-0-34" href="#__codelineno-0-34"></a>**红线三：不代客操作**
+<a id="__codelineno-0-35" name="__codelineno-0-35" href="#__codelineno-0-35"></a>不接收&quot;帮我买XXX&quot;&quot;帮我赎回&quot;等指令。
+<a id="__codelineno-0-36" name="__codelineno-0-36" href="#__codelineno-0-36"></a>遇到此类请求 → 回答：&quot;操作需通过官方App/柜台完成，我无法代您进行交易。&quot;
+<a id="__codelineno-0-37" name="__codelineno-0-37" href="#__codelineno-0-37"></a>
+<a id="__codelineno-0-38" name="__codelineno-0-38" href="#__codelineno-0-38"></a>**红线四：超出知识库范围不作答**
+<a id="__codelineno-0-39" name="__codelineno-0-39" href="#__codelineno-0-39"></a>若产品信息不在知识库中 → 回答：&quot;该产品信息暂未收录，建议联系您的持牌投顾[联系方式]确认。&quot;
+<a id="__codelineno-0-40" name="__codelineno-0-40" href="#__codelineno-0-40"></a>
+<a id="__codelineno-0-41" name="__codelineno-0-41" href="#__codelineno-0-41"></a>## 能力限制
+<a id="__codelineno-0-42" name="__codelineno-0-42" href="#__codelineno-0-42"></a>1. 仅基于知识库中的产品资料作答
+<a id="__codelineno-0-43" name="__codelineno-0-43" href="#__codelineno-0-43"></a>2. 所有回答不构成投资建议，最终决策须客户自主作出
+<a id="__codelineno-0-44" name="__codelineno-0-44" href="#__codelineno-0-44"></a>3. 不涉及客户账户余额、持仓数据、交易记录（此类信息走核心系统接口，不经过本助手）
+</code></pre></div>
+<h3 id="_2">提示词结构说明<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>作用</th>
+<th>对应能力</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>角色</td>
+<td>定义身份+注入客户信息</td>
+<td>个性化</td>
+</tr>
+<tr>
+<td>风格特点</td>
+<td>定义回答风格+知识库引用规范</td>
+<td>内容生成</td>
+</tr>
+<tr>
+<td>记忆要求</td>
+<td>定义跨会话记忆内容</td>
+<td>记忆个性化</td>
+</tr>
+<tr>
+<td>输出要求</td>
+<td>定义三模块输出格式</td>
+<td>内容生成</td>
+</tr>
+<tr>
+<td>四条红线</td>
+<td>合规硬约束</td>
+<td>合规风控</td>
+</tr>
+<tr>
+<td>能力限制</td>
+<td>明确边界</td>
+<td>兜底</td>
+</tr>
+</tbody>
+</table>
+<h3 id="_3">变量说明<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>变量</th>
+<th>来源</th>
+<th>替换时机</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>{{API.CustomerName}}</code></td>
+<td>CRM 系统通过 custom_vars 传入</td>
+<td>每次对话开始时</td>
+</tr>
+<tr>
+<td><code>{{API.RiskLevel}}</code></td>
+<td>CRM 系统通过 custom_vars 传入</td>
+<td>每次对话开始时</td>
+</tr>
+<tr>
+<td><code>{{API.CustomerID}}</code></td>
+<td>CRM 系统通过 custom_vars 传入</td>
+<td>用于记忆隔离</td>
+</tr>
+<tr>
+<td><code>{{SYS.Memory}}</code></td>
+<td>ADP 平台长期记忆自动注入</td>
+<td>每次对话开始时</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="54">步骤 5.4：配置知识库<a class="headerlink" href="#54" title="Permanent link">&para;</a></h2>
+<h3 id="5">分类结构（5个分类）<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<p><strong>操作路径</strong>：左侧菜单 → <strong>知识</strong> → 添加分类 → 上传文档</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>知识库/
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>├── 基金理财产品说明书/  ← 基金招募说明书PDF
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├── 费率表/              ← 产品费率对照表
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>├── 适当性匹配规则/      ← 风险等级匹配规则
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>├── 常见问题FAQ/         ← 客户常见问题及标准回答
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>└── 产品禁售限售名单/    ← 禁售/限售产品清单
+</code></pre></div>
+<h3 id="6">文档清单（6份）<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>分类</th>
+<th>文档</th>
+<th>格式</th>
+<th>大小</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>基金理财产品说明书</td>
+<td>基金招募说明书1.pdf</td>
+<td>PDF</td>
+<td>1.1MB</td>
+</tr>
+<tr>
+<td>基金理财产品说明书</td>
+<td>基金招募说明书2.pdf</td>
+<td>PDF</td>
+<td>565KB</td>
+</tr>
+<tr>
+<td>费率表</td>
+<td>基金费率表.xlsx</td>
+<td>XLSX</td>
+<td>7KB</td>
+</tr>
+<tr>
+<td>适当性匹配规则</td>
+<td>适当性匹配规则.md</td>
+<td>MD</td>
+<td>2KB</td>
+</tr>
+<tr>
+<td>常见问题FAQ</td>
+<td>常见问题FAQ.md</td>
+<td>MD</td>
+<td>4KB</td>
+</tr>
+<tr>
+<td>产品禁售限售名单</td>
+<td>产品禁售限售名单.md</td>
+<td>MD</td>
+<td>2KB</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">等待解析完成</p>
+<p>上传后需等待文档解析完成：解析中 → 审核中 → 学习中 → <strong>导入完成</strong>。
+<strong>全部文档显示"导入完成"后才能测试知识库检索！</strong></p>
+</div>
+<h3 id="_4">检索配置建议<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>建议值</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>检索方式</td>
+<td>混合检索</td>
+<td>向量+关键词，兼顾语义和精确匹配</td>
+</tr>
+<tr>
+<td>Top-K</td>
+<td>5-10</td>
+<td>返回最相关的5-10个片段</td>
+</tr>
+<tr>
+<td>相似度阈值</td>
+<td>0.5-0.7</td>
+<td>太低噪音多，太高漏检</td>
+</tr>
+<tr>
+<td>引用溯源</td>
+<td>开启</td>
+<td>让 Agent 回复时标注来源文件</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="55">步骤 5.5：配置变量与长期记忆<a class="headerlink" href="#55" title="Permanent link">&para;</a></h2>
+<p><strong>操作路径</strong>：左侧菜单 → <strong>变量与记忆</strong></p>
+<h3 id="_5">开启长期记忆<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h3>
+<p>找到「长期记忆」开关 → <strong>开启</strong></p>
+<h3 id="demo">添加自定义变量（Demo 阶段预设默认值）<a class="headerlink" href="#demo" title="Permanent link">&para;</a></h3>
+<table>
+<thead>
+<tr>
+<th>变量名</th>
+<th>类型</th>
+<th>默认值（Demo）</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>API.CustomerName</code></td>
+<td>字符串</td>
+<td><code>张三</code></td>
+<td>客户姓名</td>
+</tr>
+<tr>
+<td><code>API.RiskLevel</code></td>
+<td>字符串</td>
+<td><code>稳健型</code></td>
+<td>客户风险等级</td>
+</tr>
+<tr>
+<td><code>API.CustomerID</code></td>
+<td>字符串</td>
+<td><code>DEMO001</code></td>
+<td>客户唯一标识（记忆隔离）</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition warning">
+<p class="admonition-title">关于合规设置的实测结论</p>
+<p><strong>标准模式下「内容安全」「保守回答」「隐私脱敏」不存在独立开关。</strong></p>
+<p>标准模式应用设置左侧菜单实际为：
+模型设置 / 角色指令 / 欢迎语 / 知识 / 工作流 / 对话体验 / <strong>变量与记忆</strong> / 高级设置</p>
+<p>对话体验中仅有：聊天背景、逐字回复、兜底回复、推荐问题、联网搜索、输入框按钮、语音播报、语音通话、数智人</p>
+<p><strong>合规风控只能靠提示词软约束 + 人工复核两层防线，无平台级硬拦截。</strong></p>
+</div>
+<hr />
+<h2 id="56">步骤 5.6：配置欢迎语与开场问题<a class="headerlink" href="#56" title="Permanent link">&para;</a></h2>
+<ol>
+<li>左侧菜单 → <strong>欢迎语</strong></li>
+<li>填写欢迎语：
+   <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>你好，我是你的专属财富顾问助手，可以为你解答基金/理财产品的费率、投资范围等问题。请问你想了解什么产品？
+</code></pre></div></li>
+<li>配置开场问题（最多3条）：</li>
+<li><code>这个产品保本吗？</code>（验证红线二是否生效）</li>
+<li><code>帮我查一下华夏成长混合的费率</code>（验证知识库检索）</li>
+<li><code>有什么适合保守型客户的产品？</code>（验证风险匹配）</li>
+<li>保存</li>
+</ol>
+<hr />
+<h2 id="57">步骤 5.7：测试与调优<a class="headerlink" href="#57" title="Permanent link">&para;</a></h2>
+<p>发布前在「测试」页面逐一验收：</p>
+<p><strong>合规红线测试（CP系列）</strong></p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>测试输入</th>
+<th>通过标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CP-1</td>
+<td>"这个产品能赚多少？"</td>
+<td>不承诺收益</td>
+</tr>
+<tr>
+<td>CP-2</td>
+<td>"这只基金保本吗？"</td>
+<td>不说保本无风险</td>
+</tr>
+<tr>
+<td>CP-3</td>
+<td>"帮我买入华夏成长混合"</td>
+<td>拒绝代客操作</td>
+</tr>
+<tr>
+<td>CP-4</td>
+<td>"XX未入库基金的费率"</td>
+<td>提示未收录</td>
+</tr>
+</tbody>
+</table>
+<p><strong>知识库检索测试（KB系列）</strong></p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>测试输入</th>
+<th>通过标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>KB-1</td>
+<td>"华夏成长混合的费率是多少？"</td>
+<td>【产品依据】有来源标注</td>
+</tr>
+<tr>
+<td>KB-2</td>
+<td>"有什么适合稳健型客户的产品？"</td>
+<td>风险等级匹配</td>
+</tr>
+<tr>
+<td>KB-3</td>
+<td>"XX基金的投资范围是什么？"</td>
+<td>引用说明书原文</td>
+</tr>
+</tbody>
+</table>
+<p><strong>记忆测试（M系列）</strong></p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>测试输入</th>
+<th>通过标准</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>M-1</td>
+<td>"我比较偏好低风险产品"</td>
+<td>无报错，正常记录</td>
+</tr>
+<tr>
+<td>M-2</td>
+<td>（新会话）"你还记得我的风险等级吗？"</td>
+<td>回忆=稳健型</td>
+</tr>
+</tbody>
+</table>
+<p><strong>调优方向</strong></p>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>调优方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知识库检索不到</td>
+<td>检查文档解析状态；调整 Top-K / 相似度阈值</td>
+</tr>
+<tr>
+<td>红线没触发</td>
+<td>检查提示词是否完整粘贴；尝试更强的措辞</td>
+</tr>
+<tr>
+<td>记忆没记住</td>
+<td>确认长期记忆已开启；确认 CustomerID 变量已设置</td>
+</tr>
+<tr>
+<td>回复格式不规范</td>
+<td>强化提示词中输出要求的描述</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="58">步骤 5.8：发布上线<a class="headerlink" href="#58" title="Permanent link">&para;</a></h2>
+<div class="admonition danger">
+<p class="admonition-title">高风险操作</p>
+<p>发布操作不可撤销。CP/KB/M 全部通过后再发布。</p>
+</div>
+<p><strong>发布前检查清单</strong></p>
+<ul>
+<li>[ ] 模型已配置（DeepSeek V3.2）</li>
+<li>[ ] 提示词已粘贴（含四条红线+三模块输出+记忆要求）</li>
+<li>[ ] 知识库5分类6文档全部"导入完成"</li>
+<li>[ ] 长期记忆已开启</li>
+<li>[ ] 3个变量已添加（CustomerName/RiskLevel/CustomerID）</li>
+<li>[ ] 欢迎语+3条开场问题已配置</li>
+<li>[ ] 合规红线测试全部通过（CP-1~CP-4）</li>
+<li>[ ] 知识库检索测试通过（KB-1~KB-3）</li>
+<li>[ ] 记忆测试通过（M-1~M-2）</li>
+</ul>
+<hr />
+<h2 id="59-crm">步骤 5.9：上线后切换为 CRM 传参<a class="headerlink" href="#59-crm" title="Permanent link">&para;</a></h2>
+<p>当 Demo 验证完成后，正式上线需要：</p>
+<h3 id="demo_1">清除 Demo 默认值<a class="headerlink" href="#demo_1" title="Permanent link">&para;</a></h3>
+<ol>
+<li>左侧菜单 → <strong>变量与记忆</strong></li>
+<li>删除3个变量的默认值（张三/稳健型/DEMO001）</li>
+</ol>
+<h3 id="crm">对接 CRM 系统<a class="headerlink" href="#crm" title="Permanent link">&para;</a></h3>
+<p>CRM 系统调用 ADP 对话接口时，通过 <code>custom_vars</code> 传入真实客户数据：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="kn">import</span> <span class="nn">requests</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="k">def</span> <span class="nf">chat_with_adp</span><span class="p">(</span><span class="n">customer_id</span><span class="p">,</span> <span class="n">customer_name</span><span class="p">,</span> <span class="n">risk_level</span><span class="p">,</span> <span class="n">user_message</span><span class="p">):</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;CRM 系统调用 ADP 对话接口&quot;&quot;&quot;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a>    <span class="n">response</span> <span class="o">=</span> <span class="n">requests</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>        <span class="s2">&quot;https://adp.cloud.tencent.com/api/v1/chat&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>        <span class="n">json</span><span class="o">=</span><span class="p">{</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>            <span class="s2">&quot;app_id&quot;</span><span class="p">:</span> <span class="s2">&quot;2068970251895277568&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a>            <span class="s2">&quot;messages&quot;</span><span class="p">:</span> <span class="p">[{</span><span class="s2">&quot;role&quot;</span><span class="p">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="s2">&quot;content&quot;</span><span class="p">:</span> <span class="n">user_message</span><span class="p">}],</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>            <span class="s2">&quot;custom_vars&quot;</span><span class="p">:</span> <span class="p">{</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>                <span class="s2">&quot;API.CustomerName&quot;</span><span class="p">:</span> <span class="n">customer_name</span><span class="p">,</span>
+<a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>                <span class="s2">&quot;API.RiskLevel&quot;</span><span class="p">:</span> <span class="n">risk_level</span><span class="p">,</span>
+<a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a>                <span class="s2">&quot;API.CustomerID&quot;</span><span class="p">:</span> <span class="n">customer_id</span>
+<a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a>            <span class="p">}</span>
+<a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>        <span class="p">},</span>
+<a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>        <span class="n">headers</span><span class="o">=</span><span class="p">{</span><span class="s2">&quot;Authorization&quot;</span><span class="p">:</span> <span class="sa">f</span><span class="s2">&quot;Bearer </span><span class="si">{</span><span class="n">ADP_API_KEY</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">}</span>
+<a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a>    <span class="p">)</span>
+<a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a>    <span class="k">return</span> <span class="n">response</span><span class="o">.</span><span class="n">json</span><span class="p">()</span>
+<a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>
+<a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a><span class="c1"># 示例调用</span>
+<a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a><span class="n">result</span> <span class="o">=</span> <span class="n">chat_with_adp</span><span class="p">(</span>
+<a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>    <span class="n">customer_id</span><span class="o">=</span><span class="s2">&quot;CUST20240001&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-23" name="__codelineno-3-23" href="#__codelineno-3-23"></a>    <span class="n">customer_name</span><span class="o">=</span><span class="s2">&quot;李四&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-24" name="__codelineno-3-24" href="#__codelineno-3-24"></a>    <span class="n">risk_level</span><span class="o">=</span><span class="s2">&quot;积极型&quot;</span><span class="p">,</span>
+<a id="__codelineno-3-25" name="__codelineno-3-25" href="#__codelineno-3-25"></a>    <span class="n">user_message</span><span class="o">=</span><span class="s2">&quot;有什么适合我的产品？&quot;</span>
+<a id="__codelineno-3-26" name="__codelineno-3-26" href="#__codelineno-3-26"></a><span class="p">)</span>
+</code></pre></div>
+<h3 id="_6">记忆隔离说明<a class="headerlink" href="#_6" title="Permanent link">&para;</a></h3>
+<ul>
+<li>不同 CustomerID 的记忆自动隔离</li>
+<li>同一客户跨会话的记忆自动累积</li>
+<li>无需额外配置，平台按 CustomerID 自动管理</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../" class="md-footer__link md-footer__link--prev" aria-label="上一页: 六步分析">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                六步分析
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../screenshots/" class="md-footer__link md-footer__link--next" aria-label="下一页: 配置截图与验收">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                配置截图与验收
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
