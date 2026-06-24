@@ -35,3 +35,9 @@
     初次接触 → 从**基础篇**开始顺序阅读  
     有 AI 背景 → 直接跳到**方法篇**，再选择感兴趣的场景  
     只看某个场景 → 每个场景章节均可独立阅读
+
+---
+
+## 配套资源
+
+[:fontawesome-brands-github: GitHub 仓库](https://github.com/timoxue/ADP_Training){ .md-button } — 培训文档源码、Skills 安装包、知识库资料一键下载
