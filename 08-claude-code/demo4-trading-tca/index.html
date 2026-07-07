@@ -1,0 +1,2476 @@
+
+<!doctype html>
+<html lang="zh" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="腾讯云智能体开发平台 · 证券行业实战培训手册">
+      
+      
+        <meta name="author" content="Timothy Xue">
+      
+      
+      
+        <link rel="prev" href="../demo3-batch-content/">
+      
+      
+        <link rel="next" href="../../09-openclaw-hermes/">
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.5.3, mkdocs-material-9.5.17">
+    
+    
+      
+        <title>场景四：交易执行质量分析 - AI 应用实战培训</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.bcfcd587.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.06af60db.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans+SC:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Noto Sans SC";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#tca" class="md-skip">
+          跳转至
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow md-header--lifted" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="页眉">
+    <a href="../.." title="AI 应用实战培训" class="md-header__button md-logo" aria-label="AI 应用实战培训" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AI 应用实战培训
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              场景四：交易执行质量分析
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="切换到深色模式"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="切换到深色模式" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="teal" data-md-color-accent="teal"  aria-label="切换到浅色模式"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="切换到浅色模式" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="搜索" placeholder="搜索" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="查找">
+        
+        <button type="reset" class="md-search__icon md-icon" title="清空当前内容" aria-label="清空当前内容" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            正在初始化搜索引擎
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/timoxue/ADP_Training" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    timoxue/ADP_Training
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+    
+      
+<nav class="md-tabs" aria-label="标签" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+    
+  
+  首页
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../01-foundation/" class="md-tabs__link">
+          
+  
+  基础篇
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../02-six-step/" class="md-tabs__link">
+          
+  
+  方法篇（六步分析法）
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../03-scenario1-research/" class="md-tabs__link">
+          
+  
+  场景一·投研自动化
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../04-scenario2-advisor/" class="md-tabs__link">
+          
+  
+  场景二·财富投顾
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../05-scenario3-compliance/" class="md-tabs__link">
+          
+  
+  场景三·合规风控
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../06-scenario4-post-invest/" class="md-tabs__link">
+          
+  
+  场景四·投后经营
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../07-multi-agent/" class="md-tabs__link">
+          
+  
+  进阶篇·Multi-Agent
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../" class="md-tabs__link">
+          
+  
+  Claude Code 实战
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../09-openclaw-hermes/" class="md-tabs__link">
+          
+  
+  框架演示·OpenClaw & Hermes
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+    
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="导航栏" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="AI 应用实战培训" class="md-nav__button md-logo" aria-label="AI 应用实战培训" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    AI 应用实战培训
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/timoxue/ADP_Training" title="前往仓库" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><!--! Font Awesome Free 6.5.1 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2023 Fonticons, Inc.--><path d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"/></svg>
+  </div>
+  <div class="md-source__repository">
+    timoxue/ADP_Training
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    首页
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    基础篇
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            基础篇
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/llm-rag-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    LLM · RAG · Agent
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/ai-landscape/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主流模型与框架速览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/skills-harness/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Skills 与提示词框架
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/adp-platform/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    ADP 平台功能总览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/adp-modes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    四种应用模式
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/useful-skills/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    推荐 Skills 分类
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../01-foundation/skill-a-stock-data/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    a-stock-data 详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    方法篇（六步分析法）
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            方法篇（六步分析法）
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/method/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    六步分析法详解
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/skills-prep/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    自定义 Skills 准备
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/app-create/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    应用创建与配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../02-six-step/prompt-writing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    提示词编写实战
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    场景一·投研自动化
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            场景一·投研自动化
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scenario1-research/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scenario1-research/rag-qa/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    研报问答系统搭建
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scenario1-research/data-extract/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    数据抽取与结构化
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../03-scenario1-research/screenshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置截图与验收
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    场景二·财富投顾
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            场景二·财富投顾
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-scenario2-advisor/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    六步分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-scenario2-advisor/assistant/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    详细搭建指南
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../04-scenario2-advisor/screenshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置截图与验收
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    场景三·合规风控
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            场景三·合规风控
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-scenario3-compliance/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-scenario3-compliance/plan-a-speech/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    方案A：话术合规预检
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-scenario3-compliance/plan-b-diff/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    方案B：制度版本比对
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../05-scenario3-compliance/screenshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置截图与验收
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    场景四·投后经营
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            场景四·投后经营
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-scenario4-post-invest/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-scenario4-post-invest/fetch-report/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    公告抓取与简报生成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-scenario4-post-invest/webhook-push/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    群机器人推送配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../06-scenario4-post-invest/screenshots/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    配置截图与验收
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    进阶篇·Multi-Agent
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            进阶篇·Multi-Agent
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/team-design/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    投研小团队架构设计
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/main-agent/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    主 Agent 配置
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/sub-agents/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    子 Agent 配置与转交
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../07-multi-agent/validation/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    验收标准与常见问题
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="">
+            
+  
+  <span class="md-ellipsis">
+    Claude Code 实战
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            Claude Code 实战
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demo1-document-analysis/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    场景一：监管文件智能解析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demo2-data-processing/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    场景二：财务数据自动分析
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../demo3-batch-content/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    场景三：批量报告生成
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  <span class="md-ellipsis">
+    场景四：交易执行质量分析
+  </span>
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  <span class="md-ellipsis">
+    场景四：交易执行质量分析
+  </span>
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用场景
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例数据
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      前置准备
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      操作步骤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="操作步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 1：启动 Claude Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 2：了解数据概况
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-vwap" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 3：计算 VWAP 滑点，找出最优 / 最差订单
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 4：按算法 / 交易员两个维度做归因
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5：生成可视化图表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 6：生成柜台日报邮件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 7（可选）：导出复盘 Excel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_10" >
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="0">
+            
+  
+  <span class="md-ellipsis">
+    框架演示·OpenClaw & Hermes
+  </span>
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            框架演示·OpenClaw & Hermes
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-openclaw-hermes/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    概览
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-openclaw-hermes/openclaw-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    OpenClaw 合规预检演示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../09-openclaw-hermes/hermes-demo/" class="md-nav__link">
+        
+  
+  <span class="md-ellipsis">
+    Hermes 跨会话记忆演示
+  </span>
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="目录">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      目录
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      使用场景
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    <span class="md-ellipsis">
+      示例数据
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    <span class="md-ellipsis">
+      前置准备
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    <span class="md-ellipsis">
+      操作步骤
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="操作步骤">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#1-claude-code" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 1：启动 Claude Code
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#2" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 2：了解数据概况
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#3-vwap" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 3：计算 VWAP 滑点，找出最优 / 最差订单
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#4" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 4：按算法 / 交易员两个维度做归因
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#5" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 5：生成可视化图表
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#6" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 6：生成柜台日报邮件
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#7-excel" class="md-nav__link">
+    <span class="md-ellipsis">
+      步骤 7（可选）：导出复盘 Excel
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+  
+  
+
+
+<h1 id="tca">场景四：交易执行质量分析（TCA）<a class="headerlink" href="#tca" title="Permanent link">&para;</a></h1>
+<blockquote>
+<p>交易部 / 机构交易柜台 · 从成交明细到执行质量报告</p>
+</blockquote>
+<hr />
+<h2 id="_1">使用场景<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>券商机构交易柜台每天需要对当日执行的订单做<strong>交易成本分析（Transaction Cost Analysis, TCA）</strong>：算滑点、比 VWAP、看算法表现、找出执行差的订单。以往这些工作要在 Excel 里手工透视表 + VLOOKUP，还要额外画图工具。以下演示用 Claude Code 一次跑通「读数据 → 算指标 → 画图 → 出报告」全链路。</p>
+<hr />
+<h2 id="_2">示例数据<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>将以下内容保存为 <code>trading_log.csv</code>，放在工作目录中。这是一份虚构的机构交易柜台单日成交明细。</p>
+<details class="note">
+<summary>展开查看示例数据</summary>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>订单号,交易员,股票代码,股票名称,方向,算法,委托时间,完成时间,委托数量,成交数量,委托均价,市场VWAP,到达价,收盘价
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>T20241015001,张伟,600519,贵州茅台,买入,VWAP,09:35:00,10:12:00,5000,5000,1682.50,1680.30,1678.00,1691.20
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>T20241015002,张伟,000858,五粮液,买入,TWAP,09:40:00,11:20:00,20000,20000,142.85,142.60,142.10,144.30
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>T20241015003,李娜,300750,宁德时代,卖出,POV,09:45:00,10:30:00,8000,8000,238.20,239.80,241.50,236.10
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>T20241015004,李娜,002594,比亚迪,卖出,VWAP,10:00:00,11:15:00,15000,15000,265.40,266.20,267.00,264.50
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a>T20241015005,王强,601318,中国平安,买入,VWAP,10:05:00,10:45:00,30000,30000,52.15,52.08,51.90,52.60
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a>T20241015006,王强,600036,招商银行,买入,ICEBERG,10:10:00,13:20:00,50000,50000,35.82,35.75,35.60,36.10
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a>T20241015007,张伟,000001,平安银行,卖出,VWAP,10:20:00,11:00:00,80000,80000,11.95,12.02,12.10,11.88
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a>T20241015008,赵敏,600030,中信证券,买入,TWAP,10:30:00,14:00:00,40000,40000,22.68,22.55,22.40,22.85
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a>T20241015009,赵敏,601988,中国银行,卖出,POV,10:45:00,11:30:00,120000,120000,4.35,4.38,4.40,4.32
+<a id="__codelineno-0-11" name="__codelineno-0-11" href="#__codelineno-0-11"></a>T20241015010,李娜,600276,恒瑞医药,买入,VWAP,11:00:00,13:45:00,10000,10000,45.62,45.40,45.10,46.20
+<a id="__codelineno-0-12" name="__codelineno-0-12" href="#__codelineno-0-12"></a>T20241015011,王强,300059,东方财富,卖出,ICEBERG,11:10:00,14:30:00,60000,60000,18.75,18.82,18.90,18.60
+<a id="__codelineno-0-13" name="__codelineno-0-13" href="#__codelineno-0-13"></a>T20241015012,张伟,600887,伊利股份,买入,VWAP,13:05:00,14:20:00,25000,25000,28.95,28.88,28.75,29.15
+<a id="__codelineno-0-14" name="__codelineno-0-14" href="#__codelineno-0-14"></a>T20241015013,赵敏,601166,兴业银行,买入,TWAP,13:15:00,14:45:00,45000,45000,17.28,17.20,17.10,17.35
+<a id="__codelineno-0-15" name="__codelineno-0-15" href="#__codelineno-0-15"></a>T20241015014,李娜,000333,美的集团,卖出,VWAP,13:20:00,14:10:00,12000,12000,72.35,72.60,72.85,71.90
+<a id="__codelineno-0-16" name="__codelineno-0-16" href="#__codelineno-0-16"></a>T20241015015,王强,600009,上海机场,买入,POV,13:30:00,14:00:00,18000,18000,38.42,38.35,38.20,38.80
+<a id="__codelineno-0-17" name="__codelineno-0-17" href="#__codelineno-0-17"></a>T20241015016,张伟,601899,紫金矿业,卖出,VWAP,13:45:00,14:35:00,55000,55000,15.68,15.72,15.80,15.55
+<a id="__codelineno-0-18" name="__codelineno-0-18" href="#__codelineno-0-18"></a>T20241015017,赵敏,600585,海螺水泥,买入,ICEBERG,14:00:00,14:55:00,22000,22000,24.35,24.28,24.15,24.50
+<a id="__codelineno-0-19" name="__codelineno-0-19" href="#__codelineno-0-19"></a>T20241015018,李娜,000651,格力电器,买入,VWAP,14:10:00,14:50:00,15000,15000,42.85,42.72,42.55,43.10
+<a id="__codelineno-0-20" name="__codelineno-0-20" href="#__codelineno-0-20"></a>T20241015019,王强,601668,中国建筑,卖出,TWAP,14:20:00,14:58:00,150000,150000,5.42,5.45,5.48,5.38
+<a id="__codelineno-0-21" name="__codelineno-0-21" href="#__codelineno-0-21"></a>T20241015020,张伟,600028,中国石化,买入,POV,14:30:00,14:57:00,90000,90000,6.28,6.25,6.20,6.35
+</code></pre></div>
+</details>
+<p><strong>字段说明</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>字段</th>
+<th>含义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>算法</td>
+<td>VWAP/TWAP/POV/ICEBERG 四种常见执行算法</td>
+</tr>
+<tr>
+<td>委托均价</td>
+<td>本笔订单的实际成交均价</td>
+</tr>
+<tr>
+<td>市场VWAP</td>
+<td>委托时段内该股票市场成交量加权均价（基准）</td>
+</tr>
+<tr>
+<td>到达价</td>
+<td>委托下达瞬间的市价（Arrival Price）</td>
+</tr>
+<tr>
+<td>收盘价</td>
+<td>当日收盘价</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="_3">前置准备<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<p>安装 Python 分析依赖（仅需执行一次）：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>pip<span class="w"> </span>install<span class="w"> </span>pandas<span class="w"> </span>matplotlib<span class="w"> </span>plotly<span class="w"> </span>openpyxl
+</code></pre></div>
+<hr />
+<h2 id="_4">操作步骤<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h3 id="1-claude-code">步骤 1：启动 Claude Code<a class="headerlink" href="#1-claude-code" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>claude
+</code></pre></div>
+<h3 id="2">步骤 2：了解数据概况<a class="headerlink" href="#2" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a>读取当前目录的 trading_log.csv，告诉我：
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a>1. 今天一共执行了多少笔订单，总成交金额是多少
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>2. 买入 vs 卖出的笔数和金额分布
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>3. 涉及哪几位交易员、哪几种算法
+</code></pre></div>
+<p><strong>预期输出</strong>：</p>
+<blockquote>
+<p>今日共执行 <strong>20 笔订单</strong>，总成交金额约 <strong>7.68 亿元</strong>。</p>
+<p><strong>方向分布</strong>：买入 12 笔（约 4.35 亿元），卖出 8 笔（约 3.33 亿元）。</p>
+<p><strong>交易员</strong>：张伟、李娜、王强、赵敏 4 人，每人 5 笔。
+<strong>算法</strong>：VWAP（8 笔）、TWAP（4 笔）、POV（4 笔）、ICEBERG（4 笔）。</p>
+</blockquote>
+<hr />
+<h3 id="3-vwap">步骤 3：计算 VWAP 滑点，找出最优 / 最差订单<a class="headerlink" href="#3-vwap" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>针对每笔订单，计算两个执行质量指标：
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a>1. VWAP滑点（bps）= (委托均价 - 市场VWAP) / 市场VWAP × 10000
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a>   注意方向：买入时滑点为正表示成本超基准（差），卖出时滑点为负表示卖价低于基准（差）
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a>   统一转换为「相对基准的成本」——买入正为差、卖出负为差
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a>2. 实施差额IS（Implementation Shortfall, bps）
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a>   = (委托均价 - 到达价) / 到达价 × 10000（买入方向，卖出取反）
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a>按 IS 从最差到最优排序，找出：
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a>- Top 3 最差执行的订单（成本最高）
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a>- Top 3 最优执行的订单（成本最低甚至负成本）
+<a id="__codelineno-4-13" name="__codelineno-4-13" href="#__codelineno-4-13"></a>用表格输出：订单号 / 交易员 / 股票 / 方向 / 算法 / VWAP滑点 / IS
+</code></pre></div>
+<p><strong>预期输出</strong>（节选）：</p>
+<p><strong>执行最差 Top 3</strong></p>
+<table>
+<thead>
+<tr>
+<th>订单号</th>
+<th>交易员</th>
+<th>股票</th>
+<th>方向</th>
+<th>算法</th>
+<th>VWAP滑点(bps)</th>
+<th>IS(bps)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T20241015010</td>
+<td>李娜</td>
+<td>恒瑞医药</td>
+<td>买入</td>
+<td>VWAP</td>
+<td>+48.5</td>
+<td>+115.3</td>
+</tr>
+<tr>
+<td>T20241015003</td>
+<td>李娜</td>
+<td>宁德时代</td>
+<td>卖出</td>
+<td>POV</td>
+<td>+66.7</td>
+<td>+136.6</td>
+</tr>
+<tr>
+<td>T20241015008</td>
+<td>赵敏</td>
+<td>中信证券</td>
+<td>买入</td>
+<td>TWAP</td>
+<td>+57.6</td>
+<td>+125.0</td>
+</tr>
+</tbody>
+</table>
+<p><strong>执行最优 Top 3</strong></p>
+<table>
+<thead>
+<tr>
+<th>订单号</th>
+<th>交易员</th>
+<th>股票</th>
+<th>方向</th>
+<th>算法</th>
+<th>VWAP滑点(bps)</th>
+<th>IS(bps)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>T20241015007</td>
+<td>张伟</td>
+<td>平安银行</td>
+<td>卖出</td>
+<td>VWAP</td>
+<td>-58.2</td>
+<td>-124.0</td>
+</tr>
+<tr>
+<td>T20241015014</td>
+<td>李娜</td>
+<td>美的集团</td>
+<td>卖出</td>
+<td>VWAP</td>
+<td>-34.4</td>
+<td>-68.6</td>
+</tr>
+<tr>
+<td>T20241015019</td>
+<td>王强</td>
+<td>中国建筑</td>
+<td>卖出</td>
+<td>TWAP</td>
+<td>-55.0</td>
+<td>-109.5</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h3 id="4">步骤 4：按算法 / 交易员两个维度做归因<a class="headerlink" href="#4" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>基于上述指标，做两组归因分析：
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a>1. 按算法分组：每种算法的平均 IS、订单数、总成交金额
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a>   哪种算法在今日整体行情下表现最好？
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a>2. 按交易员分组：每位交易员的平均 IS、订单数、命中率（IS &lt; 0 的比例）
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a>   哪位交易员执行质量最稳？
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a>
+<a id="__codelineno-5-9" name="__codelineno-5-9" href="#__codelineno-5-9"></a>结果用两张表格输出，并给出一句话结论
+</code></pre></div>
+<p><strong>预期输出</strong>（结构示例）：</p>
+<p><strong>按算法维度</strong></p>
+<table>
+<thead>
+<tr>
+<th>算法</th>
+<th style="text-align: right;">订单数</th>
+<th style="text-align: right;">平均IS(bps)</th>
+<th style="text-align: right;">成交金额(万元)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>VWAP</td>
+<td style="text-align: right;">8</td>
+<td style="text-align: right;">-12.5</td>
+<td style="text-align: right;">32,140</td>
+</tr>
+<tr>
+<td>TWAP</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">+18.3</td>
+<td style="text-align: right;">12,760</td>
+</tr>
+<tr>
+<td>POV</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">+25.6</td>
+<td style="text-align: right;">17,850</td>
+</tr>
+<tr>
+<td>ICEBERG</td>
+<td style="text-align: right;">4</td>
+<td style="text-align: right;">-8.4</td>
+<td style="text-align: right;">14,020</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>结论</strong>：今日行情下，VWAP 和 ICEBERG 算法表现较好；POV 算法在追盘时明显吃亏（正 IS 表示成本高于到达价）。</p>
+</blockquote>
+<hr />
+<h3 id="5">步骤 5：生成可视化图表<a class="headerlink" href="#5" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>帮我写一个 Python 脚本，读取 trading_log.csv，生成以下图表并保存为 HTML 文件：
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a>1. 每笔订单的 IS 散点图，X 轴订单号，Y 轴 IS(bps)，颜色按算法区分，
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a>   过零线画红色虚线（正为差、负为优）
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a>
+<a id="__codelineno-6-6" name="__codelineno-6-6" href="#__codelineno-6-6"></a>2. 按算法分组的 IS 箱线图（Box Plot），看哪种算法波动最小
+<a id="__codelineno-6-7" name="__codelineno-6-7" href="#__codelineno-6-7"></a>
+<a id="__codelineno-6-8" name="__codelineno-6-8" href="#__codelineno-6-8"></a>3. 按交易员分组的 IS 柱状图，展示平均 IS
+<a id="__codelineno-6-9" name="__codelineno-6-9" href="#__codelineno-6-9"></a>
+<a id="__codelineno-6-10" name="__codelineno-6-10" href="#__codelineno-6-10"></a>使用 plotly 库，中文标题，保存为 tca_report.html
+</code></pre></div>
+<p>Claude Code 生成脚本后，继续输入：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>请运行刚才生成的脚本
+</code></pre></div>
+<p>查看结果：</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a><span class="c1"># Windows</span>
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>start<span class="w"> </span>tca_report.html
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a><span class="c1"># Mac</span>
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>open<span class="w"> </span>tca_report.html
+</code></pre></div>
+<hr />
+<h3 id="6">步骤 6：生成柜台日报邮件<a class="headerlink" href="#6" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>基于上面所有分析，帮我写一份给机构交易总监的日报邮件，主题简洁明确，正文包含：
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a>1. 今日执行总览（订单数、成交金额、平均IS）
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a>2. 执行亮点（1-2 条）
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a>3. 需要关注的问题（点名最差订单，客观陈述原因推测——如追涨杀跌、算法与行情不匹配等）
+<a id="__codelineno-9-6" name="__codelineno-9-6" href="#__codelineno-9-6"></a>4. 明日执行建议（1-2 条）
+<a id="__codelineno-9-7" name="__codelineno-9-7" href="#__codelineno-9-7"></a>
+<a id="__codelineno-9-8" name="__codelineno-9-8" href="#__codelineno-9-8"></a>控制在 400 字以内，语气专业克制
+</code></pre></div>
+<p><strong>预期输出</strong>：</p>
+<blockquote>
+<p><strong>主题</strong>：【交易柜台日报】10月15日执行质量分析——4 笔订单需复盘</p>
+<p>总监：</p>
+<p><strong>今日总览</strong>：共执行 20 笔订单，成交金额 7.68 亿元，全日加权平均 IS 约 +2.5 bps，整体略高于基准。</p>
+<p><strong>执行亮点</strong>
+- 张伟负责的平安银行 8 万股卖出单，VWAP 算法节约成本约 58 bps
+- VWAP 算法整体表现最稳，平均 IS -12.5 bps</p>
+<p><strong>需关注问题</strong>
+- 李娜负责的宁德时代 POV 卖出单，IS 达 +136.6 bps，建议复盘算法参数与市场冲击匹配度
+- POV 算法整体平均 IS +25.6 bps，在震荡行情下追盘特征明显</p>
+<p><strong>明日建议</strong>
+- 大单卖出优先考虑 VWAP 或 TWAP，谨慎使用 POV
+- 对连续两日 IS &gt; 100 bps 的订单启动逐笔复盘</p>
+<p>交易柜台
+2024-10-15</p>
+</blockquote>
+<hr />
+<h3 id="7-excel">步骤 7（可选）：导出复盘 Excel<a class="headerlink" href="#7-excel" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>把执行最差的 5 笔订单导出为 Excel 文件，文件名 tca_review_20241015.xlsx，
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>包含：原始订单数据 + 计算的 VWAP滑点 / IS / 相对到达价的执行方向偏离
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>加一个&quot;复盘要点&quot;Sheet，列出这 5 笔的可能原因和建议
+</code></pre></div>
+<hr />
+<div class="admonition tip">
+<p class="admonition-title">适用更多场景</p>
+<p>同样的方式可以用于：算法交易参数回溯、大宗交易执行分析、多日 TCA 汇总、经纪商执行质量对比、股指期货基差监控等任何需要「读数据 → 算指标 → 出报告」的交易柜台日常。</p>
+</div>
+<div class="admonition note">
+<p class="admonition-title">关于 TCA 指标</p>
+<p>本演示使用两个最常用指标：<strong>VWAP 滑点</strong>（相对区间成交量加权均价的偏离）和 <strong>Implementation Shortfall</strong>（相对下单瞬间市价的偏离）。实际生产系统还会考虑市场冲击成本、机会成本、时机成本等维度，可按需要扩展。</p>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+  <script>var tabs=__md_get("__tabs");if(Array.isArray(tabs))e:for(var set of document.querySelectorAll(".tabbed-set")){var tab,labels=set.querySelector(".tabbed-labels");for(tab of tabs)for(var label of labels.getElementsByTagName("label"))if(label.innerText.trim()===tab){var input=document.getElementById(label.htmlFor);input.checked=!0;continue e}}</script>
+
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8v12Z"/></svg>
+  回到页面顶部
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="页脚" >
+        
+          
+          <a href="../demo3-batch-content/" class="md-footer__link md-footer__link--prev" aria-label="上一页: 场景三：批量报告生成">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                上一页
+              </span>
+              <div class="md-ellipsis">
+                场景三：批量报告生成
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../../09-openclaw-hermes/" class="md-footer__link md-footer__link--next" aria-label="下一页: 概览">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                下一页
+              </span>
+              <div class="md-ellipsis">
+                概览
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11H4Z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    <script id="__config" type="application/json">{"base": "../..", "features": ["navigation.tabs", "navigation.tabs.sticky", "navigation.sections", "navigation.expand", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.tabs.link"], "search": "../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "\u5df2\u590d\u5236", "clipboard.copy": "\u590d\u5236", "search.result.more.one": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.more.other": "\u5728\u8be5\u9875\u4e0a\u8fd8\u6709 # \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.none": "\u6ca1\u6709\u627e\u5230\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.one": "\u627e\u5230 1 \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.other": "# \u4e2a\u7b26\u5408\u6761\u4ef6\u7684\u7ed3\u679c", "search.result.placeholder": "\u952e\u5165\u4ee5\u5f00\u59cb\u641c\u7d22", "search.result.term.missing": "\u7f3a\u5c11", "select.version": "\u9009\u62e9\u5f53\u524d\u7248\u672c"}}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.1e8ae164.min.js"></script>
+      
+    
+  </body>
+</html>
